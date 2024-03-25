@@ -1,6 +1,21 @@
 import { notFound } from "next/navigation"
 
 import "@/styles/mdx.css"
+import "@/styles/audio.css"
+import "@/styles/blockquote.css"
+import "@/styles/bookmark.css"
+import "@/styles/button.css"
+import "@/styles/callout.css"
+import "@/styles/collection.css"
+import "@/styles/file.css"
+import "@/styles/gallery.css"
+import "@/styles/header_v2.css"
+import "@/styles/header.css"
+import "@/styles/nft.css"
+import "@/styles/product.css"
+import "@/styles/signup.css"
+import "@/styles/toggle.css"
+import "@/styles/video.css"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -17,6 +32,7 @@ interface PostPageProps {
 
 export default async function PostPage({ params }: PostPageProps) {
   const post = await getSinglePost(params.slug)
+  console.log(post, "aaaaa")
 
   if (!post) {
     notFound()
