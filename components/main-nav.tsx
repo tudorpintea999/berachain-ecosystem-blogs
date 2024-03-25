@@ -23,21 +23,9 @@ export function MainNav({ items, children }: MainNavProps) {
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
 
   return (
-    <div className="flex gap-6 md:gap-10">
+    <div className="flex gap-10">
       <Link href="/" className="hidden items-center md:flex">
-        {/* <Icons.logo /> */}
-        <Image
-          src={
-            "https://res.cloudinary.com/duv0g402y/image/upload/f_auto,q_auto/v1/newFoundation/snhokrdrpoyupb9jt0ik"
-          }
-          alt="Berachain Logo"
-          width={52}
-          height={52}
-          style={{ height: "auto" }}
-        />
-        {/* <span className="hidden font-bold sm:inline-block">
-          {siteConfig.name}
-        </span> */}
+        <Icons.logo className="h-12 w-12" />
       </Link>
       {items?.length ? (
         <nav className="hidden gap-6 md:flex">
@@ -58,7 +46,8 @@ export function MainNav({ items, children }: MainNavProps) {
           ))}
         </nav>
       ) : null}
-      <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
+
+      <div className="flex items-center justify-between py-10 md:h-24 md:flex-row md:py-0">
         <ModeToggle />
       </div>
       <button
