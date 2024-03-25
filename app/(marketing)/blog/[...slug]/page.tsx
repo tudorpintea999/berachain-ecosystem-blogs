@@ -17,6 +17,7 @@ interface PostPageProps {
 
 export default async function PostPage({ params }: PostPageProps) {
   const post = await getSinglePost(params.slug)
+  console.log(post.authors, "aaaaa")
 
   if (!post) {
     notFound()
