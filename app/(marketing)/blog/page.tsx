@@ -1,20 +1,28 @@
 import Image from "next/image"
 import Link from "next/link"
-import { allPosts } from "contentlayer/generated"
 import { compareDesc } from "date-fns"
 
 import { formatDate } from "@/lib/utils"
+import { getPosts } from "@/app/api/getPosts"
 
 export const metadata = {
   title: "Blog",
 }
 
 export default async function BlogPage() {
-  const posts = allPosts
-    .filter((post) => post.published)
-    .sort((a, b) => {
-      return compareDesc(new Date(a.date), new Date(b.date))
-    })
+  const posts = await getPosts().then((res) => {
+    return res
+      .filter((post) => post.visibility === "public")
+      .sort((a, b) => {
+        return compareDesc(new Date(a.published_at), new Date(b.published_at))
+      })
+  })
+
+  if (!posts) {
+    return {
+      notFound: true,
+    }
+  }
 
   return (
     <div className="container max-w-4xl py-6 lg:py-10">
@@ -24,7 +32,7 @@ export default async function BlogPage() {
             Blog
           </h1>
           <p className="text-xl text-muted-foreground">
-            A blog built using Contentlayer. Posts are written in MDX.
+            A place for everything Berachain.
           </p>
         </div>
       </div>
@@ -36,9 +44,9 @@ export default async function BlogPage() {
               key={post._id}
               className="group relative flex flex-col space-y-2"
             >
-              {post.image && (
+              {post.feature_image && (
                 <Image
-                  src={post.image}
+                  src={post.feature_image}
                   alt={post.title}
                   width={804}
                   height={452}
@@ -47,15 +55,15 @@ export default async function BlogPage() {
                 />
               )}
               <h2 className="text-2xl font-extrabold">{post.title}</h2>
-              {post.description && (
-                <p className="text-muted-foreground">{post.description}</p>
+              {post.excerpt && (
+                <p className="text-muted-foreground">{post.excerpt}</p>
               )}
-              {post.date && (
+              {post.published_at && (
                 <p className="text-sm text-muted-foreground">
-                  {formatDate(post.date)}
+                  {formatDate(post.published_at)}
                 </p>
               )}
-              <Link href={post.slug} className="absolute inset-0">
+              <Link href={`/blog/${post.slug}`} className="absolute inset-0">
                 <span className="sr-only">View Article</span>
               </Link>
             </article>

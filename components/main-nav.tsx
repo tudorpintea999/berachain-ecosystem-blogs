@@ -12,6 +12,7 @@ import { Icons } from "@/components/icons"
 import { MobileNav } from "@/components/mobile-nav"
 
 import { ModeToggle } from "./mode-toggle"
+import { DocsSearch } from "./search"
 
 interface MainNavProps {
   items?: MainNavItem[]
@@ -23,7 +24,7 @@ export function MainNav({ items, children }: MainNavProps) {
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false)
 
   return (
-    <div className="flex gap-10">
+    <>
       <Link href="/" className="hidden items-center md:flex">
         <Icons.logo className="h-12 w-12" />
       </Link>
@@ -47,9 +48,11 @@ export function MainNav({ items, children }: MainNavProps) {
         </nav>
       ) : null}
 
-      <div className="flex items-center justify-between py-10 md:h-24 md:flex-row md:py-0">
+      <div className="flex items-center justify-end gap-10 py-10 md:h-24 md:flex-row md:py-0">
         <ModeToggle />
+        {/* <DocsSearch /> */}
       </div>
+
       <button
         className="flex items-center space-x-2 md:hidden"
         onClick={() => setShowMobileMenu(!showMobileMenu)}
@@ -61,6 +64,6 @@ export function MainNav({ items, children }: MainNavProps) {
       {showMobileMenu && items && (
         <MobileNav items={items}>{children}</MobileNav>
       )}
-    </div>
+    </>
   )
 }
