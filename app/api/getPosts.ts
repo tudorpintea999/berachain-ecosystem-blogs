@@ -1,3 +1,4 @@
+// TODO: move ghost a route to the api folder
 import GhostContentAPI from "@tryghost/content-api"
 
 const api = new GhostContentAPI({
