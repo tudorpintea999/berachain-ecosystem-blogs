@@ -1,6 +1,7 @@
 .kg-bookmark-card,
 .kg-bookmark-card * {
   box-sizing: border-box;
+  margin: 2.5em 0;
 }
 
 .kg-bookmark-card,

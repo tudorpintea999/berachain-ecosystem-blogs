@@ -5,6 +5,7 @@
 
 .kg-video-card {
   position: relative;
+  margin: 2.5em 0;
   --seek-before-width: 0%;
   --volume-before-width: 100%;
   --buffered-width: 0%;

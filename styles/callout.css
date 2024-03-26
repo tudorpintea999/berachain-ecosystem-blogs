@@ -6,6 +6,7 @@
 .kg-callout-card {
   display: flex;
   padding: 1.2em 1.6em;
+  margin: 2.5em 0;
   border-radius: 3px;
 }
 

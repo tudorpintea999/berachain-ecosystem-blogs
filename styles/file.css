@@ -19,6 +19,7 @@
   transition: all ease-in-out 0.35s;
   text-decoration: none;
   width: 100%;
+  margin: 2.5em 0;
 }
 
 .kg-file-card a.kg-file-card-container:hover {

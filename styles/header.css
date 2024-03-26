@@ -5,6 +5,7 @@
 
 .kg-header-card {
   padding: 12vmin 4em;
+  margin: 2.5em 0;
   min-height: 60vh;
   display: flex;
   flex-direction: column;
