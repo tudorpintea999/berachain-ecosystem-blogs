@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation"
 
+import "@/styles/post.css"
 import "@/styles/mdx.css"
 import "@/styles/audio.css"
 import "@/styles/blockquote.css"
@@ -24,6 +25,8 @@ import { buttonVariants } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 import { getSinglePost } from "@/app/api/getPosts"
 
+import ReadMore from "../readMore"
+
 interface PostPageProps {
   params: {
     slug: string[]
@@ -32,45 +35,71 @@ interface PostPageProps {
 
 export default async function PostPage({ params }: PostPageProps) {
   const post = await getSinglePost(params.slug)
-  console.log(post, "aaaaa")
 
   if (!post) {
     notFound()
   }
 
   return (
-    <article className="container relative max-w-3xl py-6 lg:py-10">
-      <Link
-        href="/blog"
-        className={cn(
-          buttonVariants({ variant: "ghost" }),
-          "absolute left-[-200px] top-14 hidden xl:inline-flex"
-        )}
-      >
-        <Icons.chevronLeft className="mr-2 h-4 w-4" />
-        See all posts
-      </Link>
-      <div>
-        {post.published_at && (
-          <time
-            dateTime={post.date}
-            className="block text-sm text-muted-foreground"
+    <div className="container">
+      <div className="container flex max-w-3xl flex-col">
+        <div className="items-start">
+          <Link
+            href="/blog"
+            className={cn(buttonVariants({ variant: "ghost" }))}
           >
-            Published on {formatDate(post.published_at)}
-          </time>
-        )}
-        <h1 className="my-2 inline-block font-heading text-4xl tracking-tight lg:text-5xl">
-          {post.title}
-        </h1>
-        <Image
-          src={post.feature_image}
-          alt={post.title}
-          width={804}
-          height={452}
-          className="rounded-md border bg-muted transition-colors"
-        />
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            <Icons.chevronLeft className="mr-2 h-4 w-4" />
+            See all posts
+          </Link>
+        </div>
+        <div className="flex w-full items-center justify-center py-6 lg:py-10">
+          <div className="items-center justify-center">
+            {post.published_at && (
+              <time
+                dateTime={post.date}
+                className="block text-sm text-muted-foreground"
+              >
+                Published on {formatDate(post.published_at)}
+              </time>
+            )}
+            {post.title ? (
+              <h1 className="my-2 inline-block font-heading text-4xl tracking-tight lg:text-5xl">
+                {post.title}
+              </h1>
+            ) : null}
+
+            {post.authors?.length ? (
+              <div className="mt-4 flex space-x-4">
+                {post.authors.map((author) =>
+                  author ? (
+                    <div
+                      key={author.id}
+                      className="my-2 flex items-center space-x-2 text-sm"
+                    >
+                      <div className="flex-1 text-left leading-tight">
+                        <p className="font-medium">{author.name}</p>
+                      </div>
+                    </div>
+                  ) : null
+                )}
+              </div>
+            ) : null}
+
+            {post.feature_image ? (
+              <Image
+                src={post.feature_image}
+                alt={post.title}
+                width={804}
+                height={452}
+                className="rounded-md border bg-muted transition-colors"
+              />
+            ) : null}
+
+            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          </div>
+        </div>
       </div>
-    </article>
+      {/* <ReadMore currentPostSlug={params.slug[0]} /> */}
+    </div>
   )
 }
