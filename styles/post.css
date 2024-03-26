@@ -1,5 +1,8 @@
 /* Content grid
 /* ---------------------------------------------------------- */
+p {
+  text-align: justify;
+}
 
 .gh-canvas,
 .kg-width-full.kg-content-wide {
