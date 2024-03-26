@@ -99,7 +99,7 @@ export default async function PostPage({ params }: PostPageProps) {
           </div>
         </div>
       </div>
-      <ReadMore currentPostSlug={params.slug[0]} />
+      {/* <ReadMore currentPostSlug={params.slug[0]} /> */}
     </div>
   )
 }
