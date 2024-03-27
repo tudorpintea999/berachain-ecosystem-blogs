@@ -12,7 +12,7 @@ import { Icons } from "@/components/icons"
 import { MobileNav } from "@/components/mobile-nav"
 
 import { ModeToggle } from "./mode-toggle"
-import Search from "./search"
+import { DocsSearch } from "./search"
 
 interface MainNavProps {
   items?: MainNavItem[]
@@ -50,7 +50,7 @@ export function MainNav({ items, children }: MainNavProps) {
 
       <div className="flex items-center justify-end gap-10 py-10 md:h-24 md:flex-row md:py-0">
         <ModeToggle />
-        <Search />
+        {/* <DocsSearch /> */}
       </div>
 
       <button
