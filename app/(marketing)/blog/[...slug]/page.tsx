@@ -43,8 +43,8 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <div className="container">
-      <div className="container flex max-w-3xl flex-col">
+    <>
+      <div className="container flex max-w-4xl flex-col">
         <div className="items-start">
           <Link
             href="/"
@@ -119,6 +119,6 @@ export default async function PostPage({ params }: PostPageProps) {
         </div>
       </div>
       <ReadMore currentPostSlug={params.slug[0]} />
-    </div>
+    </>
   )
 }
