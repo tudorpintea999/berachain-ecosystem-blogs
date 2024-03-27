@@ -25,15 +25,15 @@ export default async function BlogPage() {
   }
 
   return (
-    <div className="container max-w-4xl py-6 lg:py-10">
+    <div className="container max-w-6xl py-6 lg:py-10">
       <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
         <div className="flex-1 space-y-4">
           <h1 className="inline-block font-heading text-4xl tracking-tight lg:text-5xl">
             Blog
           </h1>
-          <p className="text-xl text-muted-foreground">
+          <div className="text-xl text-muted-foreground">
             A place for everything Berachain.
-          </p>
+          </div>
         </div>
       </div>
       <hr className="my-8" />
@@ -57,6 +57,25 @@ export default async function BlogPage() {
               <h2 className="text-lg font-extrabold md:text-2xl">
                 {post.title}
               </h2>
+
+              {post.authors?.length ? (
+                <div className="flex space-x-4">
+                  {post.authors.map((author) =>
+                    author ? (
+                      <div
+                        key={author.id}
+                        className="flex items-center space-x-2 text-sm"
+                      >
+                        <div className="flex-1 text-left leading-tight">
+                          <div className="mb-0 text-[12px] font-medium">
+                            By {author.name}
+                          </div>
+                        </div>
+                      </div>
+                    ) : null
+                  )}
+                </div>
+              ) : null}
               {/* {post.excerpt && (
                 <p className="text-muted-foreground">{post.excerpt}</p>
               )} */}

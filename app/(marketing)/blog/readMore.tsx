@@ -48,7 +48,7 @@ export default function ReadMore({ currentPostSlug }: ReadMoreProps) {
 
   return (
     <>
-      <div className="w-full py-6 font-bold lg:py-10">
+      <div className="container w-full py-6 font-bold lg:py-10">
         <h2>READ MORE</h2>
         <div className="my-2 border-t-2 border-muted xl:border-r-2" />
         <div className="grid gap-10 sm:grid-cols-4">

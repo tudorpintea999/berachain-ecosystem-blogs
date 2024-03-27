@@ -11,7 +11,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
       </h2>
 
       <div className="flex flex-col items-center justify-between sm:flex-row">
-        <p className="text-xs leading-5 text-secondary-foreground">
+        <div className="text-xs leading-5 text-secondary-foreground">
           &copy; {new Date().getFullYear()} Berachain | All rights reserved |{" "}
           <a className="font-bold underline" href="/terms-of-use">
             Terms of Service
@@ -20,8 +20,10 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
           <a className="font-bold underline" href="/privacy-policy">
             Privacy Policy
           </a>
-        </p>
-        <p className="whitespace-nowrap text-xs">Made W/❤️ at the 🐻Beraden</p>
+        </div>
+        <div className="whitespace-nowrap text-xs">
+          Made W/❤️ at the 🐻Beraden
+        </div>
       </div>
 
       <div className="mt-2 flex w-full text-left text-[8px] sm:w-9/12">
