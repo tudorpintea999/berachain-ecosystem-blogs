@@ -29,7 +29,7 @@ import ReadMore from "../readMore"
 
 interface PostPageProps {
   params: {
-    slug: string[]
+    slug: string
   }
 }
 
@@ -44,10 +44,7 @@ export default async function PostPage({ params }: PostPageProps) {
     <div className="container">
       <div className="container flex max-w-3xl flex-col">
         <div className="items-start">
-          <Link
-            href="/blog"
-            className={cn(buttonVariants({ variant: "ghost" }))}
-          >
+          <Link href="/" className={cn(buttonVariants({ variant: "ghost" }))}>
             <Icons.chevronLeft className="mr-2 h-4 w-4" />
             See all posts
           </Link>
@@ -99,7 +96,7 @@ export default async function PostPage({ params }: PostPageProps) {
           </div>
         </div>
       </div>
-      {/* <ReadMore currentPostSlug={params.slug[0]} /> */}
+      <ReadMore currentPostSlug={params.slug} />
     </div>
   )
 }

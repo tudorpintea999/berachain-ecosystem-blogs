@@ -41,8 +41,8 @@ export default async function BlogPage() {
         <div className="grid gap-10 sm:grid-cols-2">
           {posts.map((post, index) => (
             <article
-              key={post._id}
-              className="group relative flex flex-col space-y-2"
+              key={post.id}
+              className="group relative flex flex-col space-y-2 overflow-hidden"
             >
               {post.feature_image && (
                 <Image
@@ -54,10 +54,12 @@ export default async function BlogPage() {
                   priority={index <= 1}
                 />
               )}
-              <h2 className="text-2xl font-extrabold">{post.title}</h2>
-              {post.excerpt && (
+              <h2 className="text-lg font-extrabold md:text-2xl">
+                {post.title}
+              </h2>
+              {/* {post.excerpt && (
                 <p className="text-muted-foreground">{post.excerpt}</p>
-              )}
+              )} */}
               {post.published_at && (
                 <p className="text-sm text-muted-foreground">
                   {formatDate(post.published_at)}
