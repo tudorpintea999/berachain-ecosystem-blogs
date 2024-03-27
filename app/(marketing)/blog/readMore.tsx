@@ -35,8 +35,6 @@ export default function ReadMore({ currentPostSlug }: ReadMoreProps) {
       .catch((error) => {
         console.error("Failed to fetch posts:", error)
         setLoading(false)
-        // Optionally redirect or handle error
-        // router.push('/error-page');
       })
   }, [currentPostSlug])
 
