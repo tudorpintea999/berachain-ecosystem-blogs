@@ -1,10 +1,8 @@
-import * as fs from "node:fs"
 import Image from "next/image"
 import Link from "next/link"
 import { compareDesc } from "date-fns"
 
 import { formatDate } from "@/lib/utils"
-import Search from "@/components/search"
 import { getPosts } from "@/app/api/getPosts"
 
 export const metadata = {
@@ -13,19 +11,6 @@ export const metadata = {
 
 export default async function BlogPage() {
   const posts = await getPosts().then((res) => {
-    try {
-      const jsonString = JSON.stringify(res)
-
-      fs.writeFile("/app/search.json", jsonString, "utf8", (err) => {
-        if (err) {
-          console.log("Error writing file", err)
-        } else {
-          console.log("Successfully wrote file")
-        }
-      })
-    } catch (error) {
-      console.log("error : ", error)
-    }
     return res
       .filter((post) => post.visibility === "public")
       .sort((a, b) => {
@@ -40,7 +25,7 @@ export default async function BlogPage() {
   }
 
   return (
-    <div className="container max-w-4xl py-6 lg:py-10">
+    <div className="container max-w-6xl py-6 lg:py-10">
       <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
         <div className="flex-1 space-y-4">
           <h1 className="inline-block font-heading text-4xl tracking-tight lg:text-5xl">
