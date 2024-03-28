@@ -1,14 +1,13 @@
 "use client"
 
-import React, { useEffect, useState } from "react"
 import Link from "next/link"
 import * as Popover from "@radix-ui/react-popover"
 import type { PostOrPage } from "@tryghost/content-api"
-import Fuse from "fuse.js"
 import { Search as SearchIcon } from "lucide-react"
 
+import { useFuse } from "@/hooks/use-fuse"
+
 import searchData from "../search.json"
-import { Icons } from "./icons"
 
 const fuseOptions = {
   isCaseSensitive: false,
@@ -27,31 +26,20 @@ const fuseOptions = {
   keys: ["title", "html", "slug", "authors.name", "excerpt"],
 }
 
-let searchPost: PostOrPage[] = []
-
 function Search() {
-  const [query, setQuery] = useState<string>("")
-  const [searchRes, setRes] = useState<PostOrPage[]>([])
-  const fuse = new Fuse(searchData, fuseOptions)
-
-  useEffect(() => {
-    const res = fuse.search(query)
-    setRes(res)
-    console.log(res)
-  }, [query])
-  console.log(searchRes)
+  const { hits, onSearch } = useFuse(searchData, fuseOptions)
 
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
         <button className="cursor-pointer outline-none" aria-label="Search">
-          <SearchIcon className="h-6 w-6" />
+          <SearchIcon className="h-8 w-8" />
         </button>
       </Popover.Trigger>
 
       <Popover.Portal>
         <Popover.Content
-          className="data-[state=open]:data-[side=top]:animate-slideDownAndFade data-[state=open]:data-[side=right]:animate-slideLeftAndFade data-[state=open]:data-[side=bottom]:animate-slideUpAndFade data-[state=open]:data-[side=left]:animate-slideRightAndFade w-[480px] rounded bg-white p-2 will-change-[transform,opacity] dark:bg-gray-800"
+          className="data-[state=open]:data-[side=top]:animate-slideDownAndFade data-[state=open]:data-[side=right]:animate-slideLeftAndFade data-[state=open]:data-[side=bottom]:animate-slideUpAndFade data-[state=open]:data-[side=left]:animate-slideRightAndFade w-[480px] rounded bg-white p-2 will-change-[transform,opacity] dark:bg-black"
           sideOffset={5}
         >
           <div className="my-2">
@@ -81,7 +69,8 @@ function Search() {
               <input
                 type="search"
                 id="default-search"
-                onChange={(event) => setQuery(event?.target.value)}
+                onKeyUp={onSearch}
+                onChange={onSearch}
                 className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-4 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
                 placeholder="Start searching here ..."
                 required
@@ -89,16 +78,17 @@ function Search() {
             </div>
           </div>
 
-          {searchRes.length > 0
-            ? searchRes.map((res) => {
+          {hits.length > 0
+            ? hits.map((res) => {
+                const item = res.item as PostOrPage
                 return (
-                  <div key={res.item.uuid} className="my-3">
-                    <div className="my-2 rounded-md border-t py-2 text-muted-foreground">
+                  <div key={item.uuid} className="my-3">
+                    <div className="my-2 rounded-md border py-2 text-muted-foreground">
                       <Link
-                        href={`blog/${res.item.slug}`}
+                        href={`blog/${item.slug}`}
                         className="relative inline-flex w-full items-center rounded-lg px-4 py-2 text-sm font-medium"
                       >
-                        {res.item.title}
+                        {item.title}
                       </Link>
                     </div>
                   </div>

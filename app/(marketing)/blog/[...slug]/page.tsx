@@ -44,7 +44,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <>
-      <div className="container flex max-w-4xl flex-col">
+      <div className="container flex max-w-6xl flex-col">
         <div className="items-start">
           <Link
             href="/"
