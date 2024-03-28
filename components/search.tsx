@@ -3,11 +3,10 @@
 import Link from "next/link"
 import * as Popover from "@radix-ui/react-popover"
 import type { PostOrPage } from "@tryghost/content-api"
+import searchData from "data/search.json"
 import { Search as SearchIcon } from "lucide-react"
 
 import { useFuse } from "@/hooks/use-fuse"
-
-import searchData from "../search.json"
 
 const fuseOptions = {
   isCaseSensitive: false,
