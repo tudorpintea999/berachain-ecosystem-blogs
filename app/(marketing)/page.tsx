@@ -1,10 +1,8 @@
-import * as fs from "node:fs"
 import Image from "next/image"
 import Link from "next/link"
 import { compareDesc } from "date-fns"
 
 import { formatDate } from "@/lib/utils"
-import Search from "@/components/search"
 import { getPosts } from "@/app/api/getPosts"
 
 export const metadata = {
@@ -13,19 +11,6 @@ export const metadata = {
 
 export default async function BlogPage() {
   const posts = await getPosts().then((res) => {
-    try {
-      const jsonString = JSON.stringify(res)
-
-      fs.writeFile("/app/search.json", jsonString, "utf8", (err) => {
-        if (err) {
-          console.log("Error writing file", err)
-        } else {
-          console.log("Successfully wrote file")
-        }
-      })
-    } catch (error) {
-      console.log("error : ", error)
-    }
     return res
       .filter((post) => post.visibility === "public")
       .sort((a, b) => {
