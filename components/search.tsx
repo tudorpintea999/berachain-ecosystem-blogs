@@ -38,7 +38,7 @@ function Search() {
 
       <Popover.Portal>
         <Popover.Content
-          className="data-[state=open]:data-[side=top]:animate-slideDownAndFade data-[state=open]:data-[side=right]:animate-slideLeftAndFade data-[state=open]:data-[side=bottom]:animate-slideUpAndFade data-[state=open]:data-[side=left]:animate-slideRightAndFade w-[480px] rounded bg-white p-2 will-change-[transform,opacity] dark:bg-black"
+          className="data-[state=open]:data-[side=top]:animate-slideDownAndFade data-[state=open]:data-[side=right]:animate-slideLeftAndFade data-[state=open]:data-[side=bottom]:animate-slideUpAndFade data-[state=open]:data-[side=left]:animate-slideRightAndFade w-[480px] rounded-lg bg-white p-2 will-change-[transform,opacity] dark:bg-black"
           sideOffset={5}
         >
           <div className="my-2">

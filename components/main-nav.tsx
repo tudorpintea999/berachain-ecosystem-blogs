@@ -23,7 +23,7 @@ export function MainNav({ items, children }: MainNavProps) {
 
   return (
     <>
-      <Link href="/" className="hidden items-center md:flex">
+      <Link href="/" className="flex items-center">
         <Icons.logo className="h-16 w-16" />
       </Link>
       {items?.length ? (
@@ -51,17 +51,17 @@ export function MainNav({ items, children }: MainNavProps) {
         <Search />
       </div>
 
-      <button
+      {/* <button
         className="flex items-center space-x-2 md:hidden"
         onClick={() => setShowMobileMenu(!showMobileMenu)}
       >
         {showMobileMenu ? <Icons.close /> : <Icons.logo />}
         <span className="font-bold">Menu</span>
-      </button>
+      </button> 
 
       {showMobileMenu && items && (
         <MobileNav items={items}>{children}</MobileNav>
-      )}
+      )}  */}
     </>
   )
 }
