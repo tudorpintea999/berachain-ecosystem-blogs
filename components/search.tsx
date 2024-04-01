@@ -32,7 +32,7 @@ function Search() {
     <Popover.Root>
       <Popover.Trigger asChild>
         <button className="cursor-pointer outline-none" aria-label="Search">
-          <SearchIcon className="h-8 w-8" />
+          <SearchIcon />
         </button>
       </Popover.Trigger>
 

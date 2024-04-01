@@ -41,6 +41,7 @@ export default async function PostPage({ params }: PostPageProps) {
   if (!post) {
     notFound()
   }
+  console.log(post.html)
 
   return (
     <>
@@ -59,15 +60,15 @@ export default async function PostPage({ params }: PostPageProps) {
             {post.published_at && (
               <time
                 dateTime={post.date}
-                className="block text-sm text-muted-foreground"
+                className="text-md block text-muted-foreground"
               >
                 Published on {formatDate(post.published_at)}
               </time>
             )}
             {post.title ? (
-              <h1 className="my-2 inline-block font-heading text-4xl tracking-tight lg:text-5xl">
+              <div className="text-3xl font-extrabold lg:text-5xl">
                 {post.title}
-              </h1>
+              </div>
             ) : null}
 
             {post.authors?.length ? (
@@ -119,7 +120,7 @@ export default async function PostPage({ params }: PostPageProps) {
         <section
           className="gh-content gh-canvas is-body"
           dangerouslySetInnerHTML={{ __html: post.html }}
-        />
+        ></section>
       </article>
       <ReadMore currentPostSlug={params.slug[0]} />
     </>

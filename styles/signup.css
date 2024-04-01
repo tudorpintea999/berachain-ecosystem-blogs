@@ -5,7 +5,6 @@
 .kg-signup-card,
 .kg-signup-card * {
   box-sizing: border-box;
-  /* margin: 2.5em 0; */
 }
 
 .kg-signup-card a,
@@ -14,7 +13,7 @@
 }
 
 .kg-signup-card.kg-style-accent {
-  background-color: var(--ghost-accent-color);
+  background-color: #d37ea0;
 }
 
 .kg-layout-split .kg-signup-card-content {

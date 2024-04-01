@@ -53,32 +53,31 @@ export default function ReadMore({ currentPostSlug }: ReadMoreProps) {
         <div className="my-2 border-t-2 border-muted xl:border-r-2" />
         <div className="grid gap-10 sm:grid-cols-4">
           {posts.slice(0, 4).map((post, index) => (
-            <article
-              key={post.id}
-              className="group relative flex flex-col space-y-2"
-            >
-              {post.feature_image && (
-                <Image
-                  src={post.feature_image}
-                  alt={post.title}
-                  width={804}
-                  height={452}
-                  className="rounded-md border bg-muted transition-colors"
-                  priority={index <= 1}
-                />
-              )}
-              <div className="text-lg font-extrabold md:text-2xl">
-                {post.title}
-              </div>
-              {post.published_at && (
-                <p className="text-sm font-normal text-muted-foreground">
-                  {formatDate(post.published_at)}
-                </p>
-              )}
-              <Link href={`/blog/${post.slug}`} className="absolute inset-0">
-                <span className="sr-only">View Article</span>
-              </Link>
-            </article>
+            <Link href={`/blog/${post.slug}`}>
+              <article
+                key={post.id}
+                className="group relative flex flex-col space-y-2"
+              >
+                {post.feature_image && (
+                  <Image
+                    src={post.feature_image}
+                    alt={post.title}
+                    width={804}
+                    height={452}
+                    className="rounded-md border bg-muted transition-colors"
+                    priority={index <= 1}
+                  />
+                )}
+                <div className="text-3xl font-extrabold lg:text-4xl">
+                  {post.title}
+                </div>
+                {post.published_at && (
+                  <p className="text-sm font-normal text-muted-foreground">
+                    {formatDate(post.published_at)}
+                  </p>
+                )}
+              </article>
+            </Link>
           ))}
         </div>
       </div>
