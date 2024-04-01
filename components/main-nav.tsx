@@ -24,7 +24,7 @@ export function MainNav({ items, children }: MainNavProps) {
   return (
     <>
       <Link href="/" className="hidden items-center md:flex">
-        <Icons.logo className="h-12 w-12" />
+        <Icons.logo className="h-16 w-16" />
       </Link>
       {items?.length ? (
         <nav className="hidden gap-6 md:flex">

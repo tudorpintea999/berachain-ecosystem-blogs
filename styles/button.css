@@ -9,7 +9,7 @@
   align-items: center;
   width: 100%;
   justify-content: center;
-  margin: 2.5em 0;
+  /* margin: 2.5em 0; */
 }
 
 .kg-button-card.kg-align-left {
@@ -38,6 +38,6 @@
 }
 
 .kg-button-card a.kg-btn-accent {
-  background-color: var(--ghost-accent-color);
-  color: text-muted-foreground;
+  background-color: #d37ea0;
+  color: #ffffff;
 }
