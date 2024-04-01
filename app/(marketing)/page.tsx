@@ -15,7 +15,7 @@ export default async function BlogPage() {
     try {
       const jsonString = JSON.stringify(res)
 
-      fs.writeFile("/data/search.json", jsonString, "utf8", (err) => {
+      fs.writeFile("data/search.json", jsonString, "utf8", (err) => {
         if (err) {
           console.log("Error writing file", err)
         } else {
