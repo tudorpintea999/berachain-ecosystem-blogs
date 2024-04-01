@@ -41,7 +41,6 @@ export default async function PostPage({ params }: PostPageProps) {
   if (!post) {
     notFound()
   }
-  console.log(post.html)
 
   return (
     <>

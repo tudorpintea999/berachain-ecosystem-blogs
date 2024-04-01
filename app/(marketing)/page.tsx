@@ -1,10 +1,10 @@
 import * as fs from "node:fs"
-import Image from "next/image"
-import Link from "next/link"
 import { compareDesc } from "date-fns"
 
-import { formatDate } from "@/lib/utils"
 import { getPosts } from "@/app/api/getPosts"
+
+import BlogCard from "./blog/blogCard"
+import "@/styles/post.css"
 
 export const metadata = {
   title: "Blog",
@@ -38,7 +38,7 @@ export default async function BlogPage() {
   }
 
   return (
-    <div className="w-6xl container py-6 lg:py-10">
+    <div className="container max-w-6xl py-6 lg:py-10">
       <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
         <div className="flex-1 space-y-4">
           <h1 className="inline-block font-heading text-4xl tracking-tight lg:text-5xl">
@@ -53,53 +53,7 @@ export default async function BlogPage() {
       {posts?.length ? (
         <div className="grid gap-10 sm:grid-cols-2">
           {posts.map((post, index) => (
-            <Link href={`/blog/${post.slug}`}>
-              <article
-                key={post.id}
-                className="group relative flex flex-col space-y-2 overflow-hidden"
-              >
-                {post.feature_image && (
-                  <Image
-                    src={post.feature_image}
-                    alt={post.title}
-                    width={804}
-                    height={452}
-                    className="rounded-md border bg-muted transition-colors"
-                    priority={index <= 1}
-                  />
-                )}
-                <div className="text-3xl font-extrabold lg:text-4xl">
-                  {post.title}
-                </div>
-
-                {post.authors?.length ? (
-                  <div className="flex space-x-4">
-                    {post.authors.map((author) =>
-                      author ? (
-                        <div
-                          key={author.id}
-                          className="flex items-center space-x-2 text-sm"
-                        >
-                          <div className="flex-1 text-left leading-tight">
-                            <div className="mb-0 text-[12px] font-medium">
-                              By {author.name}
-                            </div>
-                          </div>
-                        </div>
-                      ) : null
-                    )}
-                  </div>
-                ) : null}
-                {/* {post.excerpt && (
-                <p className="text-muted-foreground">{post.excerpt}</p>
-              )} */}
-                {post.published_at && (
-                  <p className="text-sm text-muted-foreground">
-                    {formatDate(post.published_at)}
-                  </p>
-                )}
-              </article>
-            </Link>
+            <BlogCard post={post} key={index} />
           ))}
         </div>
       ) : (
