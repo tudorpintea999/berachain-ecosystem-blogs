@@ -67,9 +67,9 @@ export default function ReadMore({ currentPostSlug }: ReadMoreProps) {
                   priority={index <= 1}
                 />
               )}
-              <h2 className="text-lg font-extrabold md:text-2xl">
+              <div className="text-lg font-extrabold md:text-2xl">
                 {post.title}
-              </h2>
+              </div>
               {post.published_at && (
                 <p className="text-sm font-normal text-muted-foreground">
                   {formatDate(post.published_at)}

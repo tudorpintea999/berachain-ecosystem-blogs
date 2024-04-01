@@ -44,17 +44,17 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <>
-      <div className="container flex max-w-6xl flex-col">
-        <div className="items-start">
-          <Link
-            href="/"
-            className={cn(buttonVariants({ variant: "ghost" }), "px-0")}
-          >
-            <Icons.chevronLeft className="mr-2 h-4 w-4" />
-            See all posts
-          </Link>
-        </div>
-        <div className="flex w-full items-center justify-center py-6 lg:py-10">
+      <article className="gh-article-post">
+        <header className="gh-article-header gh-canvas pb-4">
+          <div className="items-start py-2">
+            <Link
+              href="/"
+              className={cn(buttonVariants({ variant: "ghost" }), "px-0")}
+            >
+              <Icons.chevronLeft className="mr-2 h-6 w-6" />
+              <div className="text-xl text-foreground">See all posts</div>
+            </Link>
+          </div>
           <div className="items-center justify-center">
             {post.published_at && (
               <time
@@ -113,11 +113,14 @@ export default async function PostPage({ params }: PostPageProps) {
                 className="rounded-md border bg-muted transition-colors"
               />
             ) : null}
-
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </div>
-        </div>
-      </div>
+        </header>
+
+        <section
+          className="gh-content gh-canvas is-body"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
+      </article>
       <ReadMore currentPostSlug={params.slug[0]} />
     </>
   )

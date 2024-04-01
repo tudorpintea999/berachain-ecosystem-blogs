@@ -5,7 +5,7 @@
 .kg-signup-card,
 .kg-signup-card * {
   box-sizing: border-box;
-  margin: 2.5em 0;
+  /* margin: 2.5em 0; */
 }
 
 .kg-signup-card a,
