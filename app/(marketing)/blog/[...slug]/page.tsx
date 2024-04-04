@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 
 import "@/styles/content.css"
-import "@/styles/preflight.css"
+// import "@/styles/preflight.css"
 import "@/styles/post.css"
 import "@/styles/mdx.css"
 import "@/styles/audio.css"

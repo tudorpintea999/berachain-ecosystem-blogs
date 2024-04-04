@@ -1,16 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
+import { Post } from "@/types"
 
 import { formatDate } from "@/lib/utils"
-
-export interface Post {
-  authors: any
-  id: string
-  slug: string
-  title: string
-  feature_image: string
-  published_at: string
-}
 
 interface BlogCardProps {
   post: Post

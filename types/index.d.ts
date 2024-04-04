@@ -63,3 +63,12 @@ export type UserSubscriptionPlan = SubscriptionPlan &
     stripeCurrentPeriodEnd: number
     isPro: boolean
   }
+
+export type Post = {
+  authors: any
+  id: string
+  slug: string
+  title: string
+  feature_image: string
+  published_at: string
+}
