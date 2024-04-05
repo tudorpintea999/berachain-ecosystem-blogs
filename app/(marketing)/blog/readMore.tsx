@@ -1,10 +1,11 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { Post } from "@/types"
 
 import { getPosts } from "@/app/api/getPosts"
 
-import BlogCard, { Post } from "./blogCard"
+import BlogCard from "./blogCard"
 
 interface ReadMoreProps {
   currentPostSlug: string

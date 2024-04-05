@@ -46,12 +46,12 @@ const customTheme: CustomFlowbiteTheme["carousel"] = {
 }
 
 const leftControl = (
-  <button className="rounded-full p-4 outline outline-border hover:bg-muted dark:outline-muted-foreground">
+  <button className="outline-border hover:bg-muted dark:outline-muted-foreground rounded-full p-4 outline">
     <Icons.chevronLeft />
   </button>
 )
 const rightControl = (
-  <button className="rounded-full p-4 outline outline-border hover:bg-muted dark:outline-muted-foreground">
+  <button className="outline-border hover:bg-muted dark:outline-muted-foreground rounded-full p-4 outline">
     <Icons.chevronRight />
   </button>
 )
@@ -74,7 +74,7 @@ export default function BlogHighlightCarousel({
             className="relative flex w-full flex-col items-center justify-center gap-8 px-8 py-4 md:flex-row"
             // className="grid grid-rows-2 gap-12 md:grid-cols-2 md:grid-rows-1"
           >
-            <div className="flex h-full w-full flex-1 items-center overflow-hidden rounded-xl border-2 border-border p-4">
+            <div className="border-border flex h-full w-full flex-1 items-center overflow-hidden rounded-xl border-2 p-4">
               <Image
                 src={post.feature_image}
                 height={400}
