@@ -66,7 +66,6 @@ export default function BlogHighlightCarousel({
         rightControl={rightControl}
         pauseOnHover
         theme={customTheme}
-        slide={false}
       >
         {topPosts.map((post, index) => (
           <div
