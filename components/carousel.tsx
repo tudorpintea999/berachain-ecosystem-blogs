@@ -46,12 +46,12 @@ const customTheme: CustomFlowbiteTheme["carousel"] = {
 }
 
 const leftControl = (
-  <button className="rounded-full outline outline-border dark:outline-muted-foreground p-4 hover:bg-muted">
+  <button className="rounded-full p-4 outline outline-border hover:bg-muted dark:outline-muted-foreground">
     <Icons.chevronLeft />
   </button>
 )
 const rightControl = (
-  <button className="rounded-full outline outline-border dark:outline-muted-foreground p-4 hover:bg-muted">
+  <button className="rounded-full p-4 outline outline-border hover:bg-muted dark:outline-muted-foreground">
     <Icons.chevronRight />
   </button>
 )
@@ -71,10 +71,10 @@ export default function BlogHighlightCarousel({
         {topPosts.map((post, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center gap-8 px-8 relative w-full md:flex-row py-4"
+            className="relative flex w-full flex-col items-center justify-center gap-8 px-8 py-4 md:flex-row"
             // className="grid grid-rows-2 gap-12 md:grid-cols-2 md:grid-rows-1"
           >
-            <div className="border-border flex items-center overflow-hidden rounded-xl border-2 p-4 flex-1 w-full h-full">
+            <div className="flex h-full w-full flex-1 items-center overflow-hidden rounded-xl border-2 border-border p-4">
               <Image
                 src={post.feature_image}
                 height={400}
@@ -83,7 +83,7 @@ export default function BlogHighlightCarousel({
                 className="rounded-xl"
               />
             </div>
-            <div className="flex-col items-start justify-start p-4 flex-1 w-full h-full">
+            <div className="h-full w-full flex-1 flex-col items-start justify-start p-4">
               <div className="text-md text-muted-foreground">
                 {formatDate(post.published_at)}
               </div>
@@ -91,8 +91,8 @@ export default function BlogHighlightCarousel({
               <div className="flex text-3xl font-extrabold xl:text-4xl">
                 {post.title}
               </div>
-              <div className="flex h-full overflow-hidden py-4 before:absolute before:inset-0 before:bg-gradient-to-gray before:from-transparent before:to-gray before:content-['']">
-                <p className="flex z-10">{post.excerpt}</p>
+              <div className="before:bg-gradient-to-gray before:to-gray flex h-full overflow-hidden py-4 before:absolute before:inset-0 before:from-transparent before:content-['']">
+                <p className="z-10 flex">{post.excerpt}</p>
               </div>
             </div>
           </div>
