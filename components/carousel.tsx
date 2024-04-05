@@ -40,7 +40,7 @@ const customTheme: CustomFlowbiteTheme["carousel"] = {
     icon: "h-5 w-5 text-white dark:text-gray-800 sm:h-6 sm:w-6",
   },
   scrollContainer: {
-    base: "flex snap-mandatory overflow-y-hidden overflow-x-scroll scroll-smooth",
+    base: "flex snap-mandatory overflow-y-hidden scroll-smooth w-full",
     snap: "snap-x",
   },
 }
@@ -70,8 +70,8 @@ export default function BlogHighlightCarousel({
         {topPosts.map((post, index) => (
           <div
             key={index}
-            className="relative flex w-full flex-col items-center justify-center gap-8 px-8 py-4 md:flex-row"
-            // className="grid grid-rows-2 gap-12 md:grid-cols-2 md:grid-rows-1"
+            // className="relative flex w-full flex-col items-center justify-center gap-8 px-8 py-4 md:flex-row"
+            className="grid grid-rows-2 gap-12 md:grid-cols-2 md:grid-rows-1"
           >
             <div className="border-border flex h-full w-full flex-1 items-center overflow-hidden rounded-xl border-2 p-4">
               <Image
