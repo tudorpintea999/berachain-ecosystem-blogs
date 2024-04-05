@@ -5,7 +5,6 @@ import { getPosts } from "@/app/api/getPosts"
 
 import BlogCard from "./blog/blogCard"
 import "@/styles/post.css"
-import Carousel from "@/components/carousel"
 import BlogHighlightCarousel from "@/components/carousel"
 
 export const metadata = {
