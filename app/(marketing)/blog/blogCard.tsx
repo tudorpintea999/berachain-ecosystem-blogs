@@ -22,7 +22,7 @@ export default function BlogCard({ post }: BlogCardProps) {
               alt={post.title}
               width={804}
               height={452}
-              className="rounded-md border bg-muted transition-colors"
+              className="bg-muted rounded-md border transition-colors"
             />
           )}
           <div className="text-3xl font-extrabold xl:text-4xl">

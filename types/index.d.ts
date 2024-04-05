@@ -71,4 +71,5 @@ export type Post = {
   title: string
   feature_image: string
   published_at: string
+  excerpt: string
 }
