@@ -52,14 +52,14 @@ export default async function PostPage({ params }: PostPageProps) {
               className={cn(buttonVariants({ variant: "ghost" }), "px-0")}
             >
               <Icons.chevronLeft className="mr-2 h-6 w-6" />
-              <div className="text-xl text-foreground">See all posts</div>
+              <div className="text-foreground text-xl">See all posts</div>
             </Link>
           </div>
           <div className="items-center justify-center">
             {post.published_at && (
               <time
                 dateTime={post.date}
-                className="text-md block text-muted-foreground"
+                className="text-md text-muted-foreground block"
               >
                 Published on {formatDate(post.published_at)}
               </time>
@@ -94,7 +94,7 @@ export default async function PostPage({ params }: PostPageProps) {
                         <div className="mb-0 text-[12px] font-medium">
                           {author.name}
                         </div>
-                        <div className="text-[12px] text-muted-foreground">
+                        <div className="text-muted-foreground text-[12px]">
                           {post.reading_time} min read
                         </div>
                       </div>
@@ -110,7 +110,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 alt={post.title}
                 width={804}
                 height={452}
-                className="rounded-md border bg-muted transition-colors"
+                className="bg-muted rounded-md border transition-colors"
               />
             ) : null}
           </div>
