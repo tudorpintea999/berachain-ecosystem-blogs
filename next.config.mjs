@@ -11,6 +11,7 @@ const nextConfig = {
       "res.cloudinary.com",
       "berachain.ghost.io",
       "images.unsplash.com",
+      "via.placeholder.com",
     ],
   },
   experimental: {

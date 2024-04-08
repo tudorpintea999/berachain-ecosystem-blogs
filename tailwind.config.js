@@ -3,6 +3,7 @@ const { fontFamily } = require("tailwindcss/defaultTheme")
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    "./node_modules/flowbite-react/lib/**/*.js",
     "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
     "./ui/**/*.{ts,tsx}",
@@ -82,5 +83,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
+    require("flowbite/plugin"),
+  ],
 }

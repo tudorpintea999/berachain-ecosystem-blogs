@@ -5,6 +5,7 @@ import { getPosts } from "@/app/api/getPosts"
 
 import BlogCard from "./blog/blogCard"
 import "@/styles/post.css"
+import BlogHighlightCarousel from "@/components/carousel"
 
 export const metadata = {
   title: "Blog",
@@ -38,27 +39,46 @@ export default async function BlogPage() {
   }
 
   return (
-    <div className="container max-w-6xl py-6 lg:py-10">
-      <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
-        <div className="flex-1 space-y-4">
-          <h1 className="inline-block font-heading text-4xl tracking-tight lg:text-5xl">
-            Blog
-          </h1>
-          <div className="text-xl text-muted-foreground">
-            A place for everything Berachain.
+    <div className="container">
+      <div className="container max-w-8xl py-6 lg:py-10">
+        <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
+          <div className="flex-1 space-y-4">
+            <h1 className="font-heading inline-block text-4xl tracking-tight lg:text-5xl">
+              Featured
+            </h1>
+            <div className="text-muted-foreground text-xl">
+              The most interesting posts on Berachain.
+            </div>
           </div>
         </div>
       </div>
+      <BlogHighlightCarousel topPosts={posts.slice(0, 4)} />
       <hr className="my-8" />
-      {posts?.length ? (
-        <div className="grid gap-10 sm:grid-cols-2">
-          {posts.map((post, index) => (
-            <BlogCard post={post} key={index} />
-          ))}
+      <div className="container max-w-8xl py-6 lg:py-10">
+        <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
+          <div className="flex-1 space-y-4">
+            <h1 className="font-heading inline-block text-4xl tracking-tight lg:text-5xl">
+              Blog
+            </h1>
+            <div className="text-muted-foreground text-xl">
+              A place for everything Berachain.
+            </div>
+          </div>
         </div>
-      ) : (
-        <p>No posts published.</p>
-      )}
+
+        <hr className="my-8" />
+        <div className="flex flex-col items-center lg:flex-row lg:justify-between">
+          {posts?.length ? (
+            <div className="grid gap-10 sm:grid-cols-3">
+              {posts.map((post, index) => (
+                <BlogCard post={post} key={index} />
+              ))}
+            </div>
+          ) : (
+            <p>No posts published.</p>
+          )}
+        </div>
+      </div>
     </div>
   )
 }
