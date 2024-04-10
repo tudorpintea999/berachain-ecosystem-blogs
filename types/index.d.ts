@@ -72,4 +72,5 @@ export type Post = {
   feature_image: string
   published_at: string
   excerpt: string
+  primary_tag: any
 }
