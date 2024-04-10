@@ -31,7 +31,7 @@ export default function BlogCard({ post }: BlogCardProps) {
 
           {post.authors?.length ? (
             <div className="flex space-x-4">
-              {post.authors.map((author) =>
+              {post.authors.map((author, index) =>
                 author ? (
                   <div
                     key={author.id}
@@ -39,7 +39,7 @@ export default function BlogCard({ post }: BlogCardProps) {
                   >
                     <div className="flex-1 text-left leading-tight">
                       <div className="mb-0 text-[12px] font-medium">
-                        By {author.name}
+                        {index === 0 && "By"} {author.name}
                       </div>
                     </div>
                   </div>

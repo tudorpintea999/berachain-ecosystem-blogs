@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { Post } from "@/types"
 import { Carousel, type CustomFlowbiteTheme } from "flowbite-react"
 
@@ -22,11 +23,11 @@ const customTheme: CustomFlowbiteTheme["carousel"] = {
   },
   indicators: {
     active: {
-      off: "bg-black/50 hover:bg-white dark:bg-gray-800 dark:hover:bg-muted-foreground",
-      on: "bg-muted-foreground dark:bg-gray-800",
+      off: "bg-black/50 hover:bg-gray/50 dark:bg-gray-800 dark:hover:bg-muted-foreground h-2.5 w-2.5",
+      on: "bg-foreground dark:bg-gray",
     },
     base: "h-3 w-3 rounded-full",
-    wrapper: "flex justify-center gap-2 bottom-4",
+    wrapper: "flex items-center justify-center gap-2 bottom-4",
   },
   item: {
     base: "relative flex w-full h-full",
@@ -68,33 +69,35 @@ export default function BlogHighlightCarousel({
         theme={customTheme}
       >
         {topPosts.map((post, index) => (
-          <div
-            key={index}
-            // className="relative flex w-full flex-col items-center justify-center gap-8 px-8 py-4 md:flex-row"
-            className="grid grid-rows-2 gap-12 md:grid-cols-2 md:grid-rows-1"
-          >
-            <div className="border-border flex h-full w-full flex-1 items-center overflow-hidden rounded-xl border-2 p-4">
-              <Image
-                src={post.feature_image}
-                height={400}
-                width={600}
-                alt="..."
-                className="rounded-xl"
-              />
-            </div>
-            <div className="h-full w-full flex-1 flex-col items-start justify-start p-4">
-              <div className="text-md text-muted-foreground">
-                {formatDate(post.published_at)}
+          <Link href={`/blog/${post.slug}`}>
+            <div
+              key={index}
+              // className="relative flex w-full flex-col items-center justify-center gap-8 px-8 py-4 md:flex-row"
+              className="grid grid-rows-2 gap-12 md:grid-cols-2 md:grid-rows-1"
+            >
+              <div className="border-border flex h-full w-full flex-1 items-center overflow-hidden rounded-xl border-2 p-4">
+                <Image
+                  src={post.feature_image}
+                  height={400}
+                  width={600}
+                  alt="..."
+                  className="rounded-xl"
+                />
               </div>
+              <div className="h-full w-full flex-1 flex-col items-start justify-start p-4">
+                <div className="text-md text-muted-foreground">
+                  {formatDate(post.published_at)}
+                </div>
 
-              <div className="flex text-3xl font-extrabold xl:text-4xl">
-                {post.title}
-              </div>
-              <div className="before:bg-gradient-to-gray before:to-gray flex h-full overflow-hidden py-4 before:absolute before:inset-0 before:from-transparent before:content-['']">
-                <p className="z-10 flex">{post.excerpt}</p>
+                <div className="flex text-3xl font-extrabold xl:text-4xl">
+                  {post.title}
+                </div>
+                <div className="before:bg-gradient-to-gray before:to-gray flex h-full overflow-hidden py-4 before:absolute before:inset-0 before:from-transparent before:content-['']">
+                  <p className="z-10 flex">{post.excerpt}</p>
+                </div>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </Carousel>
     </div>
