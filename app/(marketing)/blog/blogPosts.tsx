@@ -26,7 +26,8 @@ export default function BlogPosts({ posts }: BlogPostsProps) {
 
   const filteredPosts = posts.filter((post) => {
     const matchesCategory =
-      category === "All" || post.primary_tag?.name === category
+      category === "All" ||
+      post.primary_tag?.name.toLowerCase() === category.toLowerCase()
     return matchesCategory
   })
   return (
