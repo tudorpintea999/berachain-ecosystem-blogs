@@ -74,13 +74,13 @@ export default function BlogHighlightCarousel({
               key={index}
               className="grid grid-rows-2 gap-12 px-4 md:grid-cols-2 md:grid-rows-1"
             >
-              <div className="border-border flex h-full w-full flex-1 items-center overflow-hidden rounded-xl border-2 ">
+              <div className="border-border flex h-full w-full items-center overflow-hidden rounded-xl border-2 ">
                 <Image
                   src={post.feature_image}
                   height={400}
                   width={600}
                   alt="..."
-                  className="rounded-xl object-cover w-full h-full"
+                  className="h-full w-full rounded-xl object-cover"
                 />
               </div>
               <div className="h-full w-full flex-1 flex-col items-start justify-start p-4">

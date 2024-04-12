@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Post } from "@/types"
 
 import { formatDate } from "@/lib/utils"
+import { Icons } from "@/components/icons"
 
 interface BlogCardProps {
   post: Post
@@ -35,11 +36,22 @@ export default function BlogCard({ post }: BlogCardProps) {
                 author ? (
                   <div
                     key={author.id}
-                    className="flex items-center space-x-2 text-sm"
+                    className="flex items-center space-x-2 text-sm gap-4"
                   >
+                    {author?.profile_image ? (
+                      <Image
+                        src={author?.profile_image ?? "/avatar.png"}
+                        alt={author?.name}
+                        width={36}
+                        height={36}
+                        className="rounded-full bg-white"
+                      />
+                    ) : (
+                      <Icons.user className="h-8 w-8 rounded-full bg-white" />
+                    )}
                     <div className="flex-1 text-left leading-tight">
                       <div className="mb-0 text-[12px] font-medium">
-                        {index === 0 && "By"} {author.name}
+                        {author.name}
                       </div>
                     </div>
                   </div>
