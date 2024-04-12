@@ -72,16 +72,15 @@ export default function BlogHighlightCarousel({
           <Link href={`/blog/${post.slug}`}>
             <div
               key={index}
-              // className="relative flex w-full flex-col items-center justify-center gap-8 px-8 py-4 md:flex-row"
-              className="grid grid-rows-2 gap-12 md:grid-cols-2 md:grid-rows-1"
+              className="grid grid-rows-2 gap-12 px-4 md:grid-cols-2 md:grid-rows-1"
             >
-              <div className="border-border flex h-full w-full flex-1 items-center overflow-hidden rounded-xl border-2 p-4">
+              <div className="border-border flex h-full w-full flex-1 items-center overflow-hidden rounded-xl border-2 ">
                 <Image
                   src={post.feature_image}
                   height={400}
                   width={600}
                   alt="..."
-                  className="rounded-xl"
+                  className="rounded-xl object-cover w-full h-full"
                 />
               </div>
               <div className="h-full w-full flex-1 flex-col items-start justify-start p-4">

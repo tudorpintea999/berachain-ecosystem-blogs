@@ -45,7 +45,7 @@ export default function BlogPosts({ posts }: BlogPostsProps) {
 
       <hr className="my-8" />
       <div className="flex flex-row items-start justify-between">
-        <div className="hidden min-w-[220px] flex-col gap-4 sm:flex">
+        <div className="mr-12 hidden min-w-[220px] flex-col gap-4 sm:flex">
           {CATEGORIES.map((category) => (
             <Button
               key={category}
@@ -58,17 +58,19 @@ export default function BlogPosts({ posts }: BlogPostsProps) {
           ))}
         </div>
 
-        <div className="flex flex-col items-center lg:flex-row lg:justify-between">
-          {filteredPosts?.length ? (
+        {filteredPosts?.length ? (
+          <div className="flex flex-col items-center lg:flex-row lg:justify-between">
             <div className="grid gap-10 sm:grid-cols-2">
               {filteredPosts.map((post, index) => (
                 <BlogCard post={post} key={index} />
               ))}
             </div>
-          ) : (
+          </div>
+        ) : (
+          <div className="flex h-full w-full items-center justify-center">
             <p>No posts published.</p>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   )
