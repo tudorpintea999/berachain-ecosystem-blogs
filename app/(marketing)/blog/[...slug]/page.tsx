@@ -52,7 +52,7 @@ export default async function PostPage({ params }: PostPageProps) {
               className={cn(buttonVariants({ variant: "ghost" }), "px-0")}
             >
               <Icons.chevronLeft className="mr-2 h-6 w-6" />
-              <div className="text-foreground text-xl">See all posts</div>
+              <div className="text-foreground pr-2 text-xl">See all posts</div>
             </Link>
           </div>
           <div className="items-center justify-center">

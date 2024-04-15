@@ -35,7 +35,11 @@ export default function ReadMore({ currentPostSlug }: ReadMoreProps) {
   }
 
   if (!posts.length) {
-    return <div>No more posts to read.</div>
+    return (
+      <div className="container w-full py-6 font-bold lg:py-10">
+        <h2>NO MORE POST</h2>
+      </div>
+    )
   }
 
   return (

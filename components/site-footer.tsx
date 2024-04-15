@@ -3,7 +3,7 @@ import * as React from "react"
 export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
     <footer
-      className="border-t border-border bg-background p-4 sm:p-8"
+      className="border-border bg-background border-t p-4 sm:p-8"
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">
@@ -11,13 +11,19 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
       </h2>
 
       <div className="flex flex-col items-center justify-between sm:flex-row">
-        <div className="text-xs leading-5 text-secondary-foreground">
+        <div className="text-secondary-foreground text-xs leading-5">
           &copy; {new Date().getFullYear()} Berachain | All rights reserved |{" "}
-          <a className="font-bold underline" href="/terms-of-use">
+          <a
+            className="font-bold underline"
+            href="https://artio.bex.berachain.com/terms-of-use"
+          >
             Terms of Service
           </a>{" "}
           |{" "}
-          <a className="font-bold underline" href="/privacy-policy">
+          <a
+            className="font-bold underline"
+            href="https://artio.bex.berachain.com/privacy-policy"
+          >
             Privacy Policy
           </a>
         </div>
