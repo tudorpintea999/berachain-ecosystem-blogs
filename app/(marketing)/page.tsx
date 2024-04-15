@@ -47,9 +47,6 @@ export default async function BlogPage() {
             <h1 className="font-heading inline-block text-4xl tracking-tight lg:text-5xl">
               Featured
             </h1>
-            <div className="text-muted-foreground text-xl">
-              The most interesting posts on Berachain.
-            </div>
           </div>
         </div>
       </div>

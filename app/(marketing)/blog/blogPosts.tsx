@@ -37,9 +37,6 @@ export default function BlogPosts({ posts }: BlogPostsProps) {
           <h1 className="font-heading inline-block text-4xl tracking-tight lg:text-5xl">
             Blog
           </h1>
-          <div className="text-muted-foreground text-xl">
-            A place for everything Berachain.
-          </div>
         </div>
       </div>
 
