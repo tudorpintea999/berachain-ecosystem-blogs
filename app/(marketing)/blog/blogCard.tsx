@@ -31,8 +31,8 @@ export default function BlogCard({ post }: BlogCardProps) {
           </div>
 
           {post.authors?.length ? (
-            <div className="flex space-x-4">
-              {post.authors.map((author, index) =>
+            <div className="flex space-x-4 py-4">
+              {post.authors.map((author) =>
                 author ? (
                   <div
                     key={author.id}

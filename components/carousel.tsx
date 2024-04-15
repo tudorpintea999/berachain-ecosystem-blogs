@@ -15,7 +15,7 @@ interface BlogHighlightCarouselProps {
 
 const customTheme: CustomFlowbiteTheme["carousel"] = {
   root: {
-    base: "flex flex-col items-center justify-center h-[360px] w-full gap-8 px-8 relative",
+    base: "flex flex-col items-center justify-center sm:h-[360px] w-full gap-8 px-8 relative",
     leftControl:
       "absolute transform left-0 -translate-x-3/4 bottom-1/2 focus:outline-none",
     rightControl:
@@ -65,6 +65,7 @@ export default function BlogHighlightCarousel({
       <Carousel
         leftControl={leftControl}
         rightControl={rightControl}
+        indicators={topPosts.length > 1}
         pauseOnHover
         theme={customTheme}
       >
@@ -91,9 +92,38 @@ export default function BlogHighlightCarousel({
                 <div className="flex text-3xl font-extrabold xl:text-4xl">
                   {post.title}
                 </div>
-                <div className="before:bg-gradient-to-gray before:to-gray flex h-full overflow-hidden py-4 before:absolute before:inset-0 before:from-transparent before:content-['']">
+                {/* <div className="before:bg-gradient-to-gray before:to-gray flex h-full overflow-hidden py-4 before:absolute before:inset-0 before:from-transparent before:content-['']">
                   <p className="z-10 flex">{post.excerpt}</p>
-                </div>
+                </div> */}
+                {post.authors?.length ? (
+                  <div className="flex space-x-4 py-4">
+                    {post.authors.map((author) =>
+                      author ? (
+                        <div
+                          key={author.id}
+                          className="flex items-center gap-4 space-x-2 text-sm"
+                        >
+                          {author?.profile_image ? (
+                            <Image
+                              src={author?.profile_image ?? "/avatar.png"}
+                              alt={author?.name}
+                              width={36}
+                              height={36}
+                              className="rounded-full bg-white"
+                            />
+                          ) : (
+                            <Icons.user className="h-8 w-8 rounded-full bg-white" />
+                          )}
+                          <div className="flex-1 text-left leading-tight">
+                            <div className="mb-0 text-[12px] font-medium">
+                              {author.name}
+                            </div>
+                          </div>
+                        </div>
+                      ) : null
+                    )}
+                  </div>
+                ) : null}
               </div>
             </div>
           </Link>
