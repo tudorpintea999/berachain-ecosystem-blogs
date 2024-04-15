@@ -61,74 +61,85 @@ export default function BlogHighlightCarousel({
   topPosts,
 }: BlogHighlightCarouselProps) {
   return (
-    <div className="flex h-full px-8">
-      <Carousel
-        leftControl={leftControl}
-        rightControl={rightControl}
-        indicators={topPosts.length > 1}
-        pauseOnHover
-        theme={customTheme}
-      >
-        {topPosts.map((post, index) => (
-          <Link href={`/blog/${post.slug}`}>
-            <div
-              key={index}
-              className="grid grid-rows-2 gap-12 px-4 md:grid-cols-2 md:grid-rows-1"
-            >
-              <div className="border-border flex h-full w-full items-center overflow-hidden rounded-xl border-2 ">
-                <Image
-                  src={post.feature_image}
-                  height={400}
-                  width={600}
-                  alt="..."
-                  className="h-full w-full rounded-xl object-cover"
-                />
-              </div>
-              <div className="h-full w-full flex-1 flex-col items-start justify-start p-4">
-                <div className="text-md text-muted-foreground">
-                  {formatDate(post.published_at)}
-                </div>
+    <div className="max-w-8xl container py-6 lg:py-10">
+      <div className="flex flex-col items-start gap-4 md:flex-row md:justify-between md:gap-8">
+        <div className="flex-1 space-y-4">
+          <h1 className="font-heading inline-block text-4xl tracking-tight lg:text-5xl">
+            Featured
+          </h1>
+        </div>
+      </div>
+      <hr className="my-8" />
 
-                <div className="flex text-3xl font-extrabold xl:text-4xl">
-                  {post.title}
+      <div className="flex h-full px-8">
+        <Carousel
+          leftControl={leftControl}
+          rightControl={rightControl}
+          indicators={topPosts.length > 1}
+          pauseOnHover
+          theme={customTheme}
+        >
+          {topPosts.map((post, index) => (
+            <Link href={`/blog/${post.slug}`}>
+              <div
+                key={index}
+                className="grid grid-rows-2 gap-12 px-4 md:grid-cols-2 md:grid-rows-1"
+              >
+                <div className="border-border flex h-full w-full items-center overflow-hidden rounded-xl border-2 ">
+                  <Image
+                    src={post.feature_image}
+                    height={400}
+                    width={600}
+                    alt="..."
+                    className="h-full w-full rounded-xl object-cover"
+                  />
                 </div>
-                {/* <div className="before:bg-gradient-to-gray before:to-gray flex h-full overflow-hidden py-4 before:absolute before:inset-0 before:from-transparent before:content-['']">
+                <div className="h-full w-full flex-1 flex-col items-start justify-start p-4">
+                  <div className="text-md text-muted-foreground">
+                    {formatDate(post.published_at)}
+                  </div>
+
+                  <div className="flex text-3xl font-extrabold xl:text-4xl">
+                    {post.title}
+                  </div>
+                  {/* <div className="before:bg-gradient-to-gray before:to-gray flex h-full overflow-hidden py-4 before:absolute before:inset-0 before:from-transparent before:content-['']">
                   <p className="z-10 flex">{post.excerpt}</p>
                 </div> */}
-                {post.authors?.length ? (
-                  <div className="flex space-x-4 py-4">
-                    {post.authors.map((author) =>
-                      author ? (
-                        <div
-                          key={author.id}
-                          className="flex items-center gap-4 space-x-2 text-sm"
-                        >
-                          {author?.profile_image ? (
-                            <Image
-                              src={author?.profile_image ?? "/avatar.png"}
-                              alt={author?.name}
-                              width={36}
-                              height={36}
-                              className="rounded-full bg-white"
-                            />
-                          ) : (
-                            <Icons.user className="h-8 w-8 rounded-full bg-white" />
-                          )}
-                          <div className="flex-1 text-left leading-tight">
-                            <div className="mb-0 text-[12px] font-medium">
-                              {author.name}
+                  {post.authors?.length ? (
+                    <div className="flex space-x-4 py-4">
+                      {post.authors.map((author) =>
+                        author ? (
+                          <div
+                            key={author.id}
+                            className="flex items-center gap-4 space-x-2 text-sm"
+                          >
+                            {author?.profile_image ? (
+                              <Image
+                                src={author?.profile_image ?? "/avatar.png"}
+                                alt={author?.name}
+                                width={36}
+                                height={36}
+                                className="rounded-full bg-white"
+                              />
+                            ) : (
+                              <Icons.user className="h-8 w-8 rounded-full bg-white" />
+                            )}
+                            <div className="flex-1 text-left leading-tight">
+                              <div className="mb-0 text-[12px] font-medium">
+                                {author.name}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ) : null
-                    )}
-                  </div>
-                ) : null}
+                        ) : null
+                      )}
+                    </div>
+                  ) : null}
+                </div>
               </div>
-            </div>
-          </Link>
-        ))}
-      </Carousel>
+            </Link>
+          ))}
+        </Carousel>
+      </div>
     </div>
   )
 }
