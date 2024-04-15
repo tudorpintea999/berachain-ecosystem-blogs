@@ -40,7 +40,7 @@ export default function BlogPosts({ posts }: BlogPostsProps) {
         </div>
       </div>
 
-      <hr className="my-8" />
+      <hr className="mb-16 mt-8" />
       <div className="flex flex-row items-start justify-between">
         <div className="mr-12 hidden min-w-[220px] flex-col gap-4 sm:flex">
           {CATEGORIES.map((category) => (
