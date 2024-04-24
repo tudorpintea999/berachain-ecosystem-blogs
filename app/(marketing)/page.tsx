@@ -41,7 +41,6 @@ export default async function BlogPage() {
 
   return (
     <div className="container">
-
       <BlogHighlightCarousel topPosts={posts.slice(0, 4)} />
       <BlogPosts posts={posts} />
     </div>
