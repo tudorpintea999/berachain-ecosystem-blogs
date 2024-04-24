@@ -56,7 +56,7 @@ export default function BlogPosts({ posts }: BlogPostsProps) {
 
         {filteredPosts?.length ? (
           <div className="flex flex-col items-center lg:flex-row lg:justify-between">
-            <div className="grid gap-10 sm:grid-cols-2">
+            <div className="grid gap-10 md:grid-cols-2">
               {filteredPosts.map((post, index) => (
                 <BlogCard post={post} key={index} />
               ))}
