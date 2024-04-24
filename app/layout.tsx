@@ -30,20 +30,20 @@ export const metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: [
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Server Components",
-    "Radix UI",
-  ],
-  authors: [
-    {
-      name: "shadcn",
-      url: "https://berachain.com",
-    },
-  ],
-  creator: "shadcn",
+  // keywords: [
+  //   "Next.js",
+  //   "React",
+  //   "Tailwind CSS",
+  //   "Server Components",
+  //   "Radix UI",
+  // ],
+  // authors: [
+  //   {
+  //     name: "shadcn",
+  //     url: "https://berachain.com",
+  //   },
+  // ],
+  // creator: "shadcn",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
@@ -56,20 +56,20 @@ export const metadata = {
   //   description: siteConfig.description,
   //   siteName: siteConfig.name,
   // },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [
-      "https://res.cloudinary.com/duv0g402y/image/upload/f_auto,q_auto/v1/newFoundation/snhokrdrpoyupb9jt0ik",
-    ],
-    creator: "@shadcn",
-  },
-  icons: {
-    icon: "https://res.cloudinary.com/duv0g402y/image/upload/f_auto,q_auto/v1/newFoundation/snhokrdrpoyupb9jt0ik",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
+  // twitter: {
+  //   card: "summary_large_image",
+  //   title: siteConfig.name,
+  //   description: siteConfig.description,
+  //   images: [
+  //     "https://res.cloudinary.com/duv0g402y/image/upload/f_auto,q_auto/v1/newFoundation/snhokrdrpoyupb9jt0ik",
+  //   ],
+  //   creator: "@shadcn",
+  // },
+  // icons: {
+  //   icon: "https://res.cloudinary.com/duv0g402y/image/upload/f_auto,q_auto/v1/newFoundation/snhokrdrpoyupb9jt0ik",
+  //   shortcut: "/favicon-16x16.png",
+  //   apple: "/apple-touch-icon.png",
+  // },
   manifest: `${siteConfig.url}/site.webmanifest`,
 }
 
