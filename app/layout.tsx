@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/toaster"
 import { Analytics } from "@/components/analytics"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Metadata } from "next"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -24,7 +25,7 @@ interface RootLayoutProps {
   children: React.ReactNode
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
@@ -44,6 +45,11 @@ export const metadata = {
   //   },
   // ],
   // creator: "shadcn",
+  openGraph: {
+    title: 'Berachain Blogs',
+    description: 'A place for everything Berachain.',
+    images: ["https://res.cloudinary.com/duv0g402y/image/upload/v1713976103/previewBlog_awjgka.jpg"]
+  },
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
@@ -56,15 +62,15 @@ export const metadata = {
   //   description: siteConfig.description,
   //   siteName: siteConfig.name,
   // },
-  // twitter: {
-  //   card: "summary_large_image",
-  //   title: siteConfig.name,
-  //   description: siteConfig.description,
-  //   images: [
-  //     "https://res.cloudinary.com/duv0g402y/image/upload/f_auto,q_auto/v1/newFoundation/snhokrdrpoyupb9jt0ik",
-  //   ],
-  //   creator: "@shadcn",
-  // },
+  twitter: {
+    card: "summary_large_image",
+    title: 'Berachain Blogs',
+    description: 'A place for everything Berachain.',
+    images: [
+      "https://res.cloudinary.com/duv0g402y/image/upload/v1713976103/previewBlog_awjgka.jpg",
+    ],
+    creator: "@berachain",
+  },
   // icons: {
   //   icon: "https://res.cloudinary.com/duv0g402y/image/upload/f_auto,q_auto/v1/newFoundation/snhokrdrpoyupb9jt0ik",
   //   shortcut: "/favicon-16x16.png",
