@@ -1,6 +1,6 @@
 import { SiteConfig } from "types"
 
-export const siteConfig: any = {
+export const siteConfig = {
   name: "Berachain Blogs",
   description: "A place for everything Berachain.",
   url: "https://berachain.com",
