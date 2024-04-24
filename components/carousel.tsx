@@ -17,9 +17,9 @@ const customTheme: CustomFlowbiteTheme["carousel"] = {
   root: {
     base: "flex flex-col items-center justify-center sm:h-[360px] w-full gap-8 px-8 relative",
     leftControl:
-      "absolute transform left-0 -translate-x-3/4 bottom-1/2 focus:outline-none",
+      "hidden transform left-0 -translate-x-3/4 bottom-1/2 focus:outline-none ", //absolute
     rightControl:
-      "absolute right-0 translate-x-3/4 bottom-1/2 focus:outline-none",
+      "hidden right-0 translate-x-3/4 bottom-1/2 focus:outline-none", //absolute
   },
   indicators: {
     active: {
