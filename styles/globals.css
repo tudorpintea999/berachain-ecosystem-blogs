@@ -95,3 +95,8 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+.card-hover:hover .image-zoom {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}

@@ -13,6 +13,7 @@ export const metadata = {
 }
 
 export default async function BlogPage() {
+  const isProd = process.env.VERCEL_ENV === "production"
   const posts = await getPosts().then((res) => {
     try {
       const jsonString = JSON.stringify(res)
@@ -28,7 +29,7 @@ export default async function BlogPage() {
       console.log("error : ", error)
     }
     return res
-      .filter((post) => post.visibility === "public")
+      .filter((post) => (isProd ? post.visibility === "public" : true))
       .sort((a, b) => {
         return compareDesc(new Date(a.published_at), new Date(b.published_at))
       })
@@ -41,7 +42,6 @@ export default async function BlogPage() {
 
   return (
     <div className="container">
-
       <BlogHighlightCarousel topPosts={posts.slice(0, 4)} />
       <BlogPosts posts={posts} />
     </div>

@@ -15,7 +15,7 @@ export default function BlogCard({ post }: BlogCardProps) {
       <Link href={`/blog/${post.slug}`}>
         <article
           key={post.id}
-          className="group relative flex flex-col space-y-2 overflow-hidden"
+          className="card-hover group relative flex flex-col space-y-2 overflow-hidden"
         >
           {post.feature_image && (
             <Image
@@ -23,7 +23,7 @@ export default function BlogCard({ post }: BlogCardProps) {
               alt={post.title}
               width={804}
               height={452}
-              className="rounded-md border bg-muted transition-colors"
+              className="image-zoom bg-muted rounded-md border transition-colors"
             />
           )}
           <div className="text-3xl font-extrabold xl:text-4xl">
@@ -36,7 +36,7 @@ export default function BlogCard({ post }: BlogCardProps) {
                 author ? (
                   <div
                     key={author.id}
-                    className="flex items-center space-x-2 text-sm gap-4"
+                    className=" flex items-center gap-4 space-x-2 text-sm"
                   >
                     {author?.profile_image ? (
                       <Image
@@ -44,7 +44,7 @@ export default function BlogCard({ post }: BlogCardProps) {
                         alt={author?.name}
                         width={36}
                         height={36}
-                        className="rounded-full bg-white"
+                        className="rounded-full bg-white "
                       />
                     ) : (
                       <Icons.user className="h-8 w-8 rounded-full bg-white" />
@@ -59,11 +59,8 @@ export default function BlogCard({ post }: BlogCardProps) {
               )}
             </div>
           ) : null}
-          {/* {post.excerpt && (
-                <p className="text-muted-foreground">{post.excerpt}</p>
-              )} */}
           {post.published_at && (
-            <div className="text-sm text-muted-foreground">
+            <div className="text-muted-foreground text-sm">
               {formatDate(post.published_at)}
             </div>
           )}
