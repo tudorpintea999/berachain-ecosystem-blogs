@@ -15,11 +15,11 @@ interface BlogHighlightCarouselProps {
 
 const customTheme: CustomFlowbiteTheme["carousel"] = {
   root: {
-    base: "flex flex-col items-center justify-center sm:h-[360px] w-full gap-8 px-8 relative",
+    base: "flex flex-col items-center justify-center md:h-[360px] w-full gap-8 relative",
     leftControl:
-      "absolute transform left-0 -translate-x-3/4 bottom-1/2 focus:outline-none",
+      "hidden transform left-0 -translate-x-3/4 bottom-1/2 focus:outline-none ", //absolute
     rightControl:
-      "absolute right-0 translate-x-3/4 bottom-1/2 focus:outline-none",
+      "hidden right-0 translate-x-3/4 bottom-1/2 focus:outline-none", //absolute
   },
   indicators: {
     active: {
@@ -71,7 +71,7 @@ export default function BlogHighlightCarousel({
       </div>
       <hr className="my-8" />
 
-      <div className="flex h-full px-8">
+      <div className="flex h-full">
         <Carousel
           leftControl={leftControl}
           rightControl={rightControl}
@@ -85,13 +85,13 @@ export default function BlogHighlightCarousel({
                 key={index}
                 className="grid grid-rows-2 gap-12 px-4 md:grid-cols-2 md:grid-rows-1"
               >
-                <div className="border-border flex h-full w-full items-center overflow-hidden rounded-xl border-2 ">
+                <div className="border-border flex h-full w-full items-center overflow-hidden rounded-xl border-2">
                   <Image
                     src={post.feature_image}
                     height={400}
                     width={600}
                     alt="..."
-                    className="h-full w-full rounded-xl object-cover"
+                    className="h-full w-full rounded-xl object-cover object-left"
                   />
                 </div>
                 <div className="h-full w-full flex-1 flex-col items-start justify-start p-4">
